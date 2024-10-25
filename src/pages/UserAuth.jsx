@@ -12,13 +12,10 @@ const UserAuth = () => {
   const handleGenerateOtp = async (event) => {
     event.preventDefault();
     try {
-      const phoneNumberData = {
-        phoneNumber: `+91${phoneNumber}`,
-      };
-      console.log(phoneNumberData)
+     
       const response = await axios.post(
         "http://localhost:3000/api/otp/generate",
-        { phoneNumber:phoneNumberData }
+        { phoneNumber: `+91${phoneNumber}` }
       );
       if (response.status === 200) {
         toast.success(response.data.message);
